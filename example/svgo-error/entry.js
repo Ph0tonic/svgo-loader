@@ -1,1 +1,1 @@
-require('./SVG_logo_malformed.svg');
+import './SVG_logo_malformed.svg';

@@ -1,9 +1,9 @@
-module.exports = {
+export default {
   mode: "production",
-  context: __dirname,
+  context: import.meta.dirname,
   entry: "./entry",
   output: {
-    path: __dirname + "/dist",
+    path: import.meta.dirname + "/dist",
     filename: "bundle.js",
     assetModuleFilename: '[name][ext]'
   },

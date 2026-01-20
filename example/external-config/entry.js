@@ -1,1 +1,1 @@
-require('./SVG_logo.svg');
+import './SVG_logo.svg';

@@ -1,19 +1,23 @@
-const assert = require('node:assert/strict');
-const fs = require('node:fs/promises');
-const path = require('node:path');
-const { test } = require('node:test');
 
-const webpack = require('webpack');
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { test } from 'node:test';
+import webpack from 'webpack';
 
-const basic = require('./example/basic/webpack.config.js');
-const externalConfig = require('./example/external-config/webpack.config.js');
-const svgoError = require('./example/svgo-error/webpack.config.js');
+import basic from './example/basic/webpack.config.js';
+import externalConfig from './example/external-config/webpack.config.js';
+import svgoError from './example/svgo-error/webpack.config.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 function buildWebpack(config) {
   const compiler = webpack(config);
   return new Promise((resolve, reject) => {
     compiler.run((error, result) => {
-      if(error) {
+      if (error) {
         reject(error);
       } else {
         resolve(result);

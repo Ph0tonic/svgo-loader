@@ -1,10 +1,9 @@
-module.exports = {
+export default {
   plugins: [
     {
       name: "preset-default",
       params: {
         overrides: {
-          removeTitle: false,
           convertPathData: false,
           convertColors: {
             shorthex: false,
@@ -12,6 +11,7 @@ module.exports = {
         },
       },
     },
+    "removeViewBox",
     "prefixIds",
   ],
 };

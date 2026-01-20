@@ -1,4 +1,4 @@
-const { optimize, loadConfig } = require('svgo');
+import { optimize, loadConfig } from 'svgo';
 
 async function loader(source) {
   const { configFile, ...options } = this.getOptions();
@@ -12,7 +12,7 @@ async function loader(source) {
   return result.data;
 }
 
-module.exports = function (source) {
+export default function (source) {
   const callback = this.async();
   loader.call(this, source)
     .then(result => callback(null, result))
